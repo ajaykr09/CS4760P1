@@ -23,11 +23,6 @@ int main(int argc, char *argv[]) {
                 break;
             case 'h':
                 printf("Usage: %s [-h] [-n proc] [-s simul] [-t iter]\n", argv[0]);
-                printf("Options:\n");
-                printf("  -h             : Show this help message\n");
-                printf("  -n <proc>      : Number of total children to launch (default: 1)\n");
-                printf("  -s <simul>     : Number of children to allow to run simultaneously (default: 1)\n");
-                printf("  -t <iter>      : Number of iterations for user processes (default: 1)\n");
                 return 0;
             default:
                 fprintf(stderr, "Unknown option: %c\n", optopt);
@@ -35,7 +30,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    // Ensure positive values for parameters
+    // Setting default values
     totalProcesses = (totalProcesses > 0) ? totalProcesses : 1;
     simultaneousProcesses = (simultaneousProcesses > 0) ? simultaneousProcesses : 1;
     iterations = (iterations > 0) ? iterations : 1;
